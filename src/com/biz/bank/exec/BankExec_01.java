@@ -30,6 +30,11 @@ public class BankExec_01 {
 			System.out.print("계좌번호 >");
 			String accNum = scan.nextLine();
 			
+			BankBalanceVO vo = bs.pickAcc(accNum);
+			if(vo == null) {
+				System.out.println("없는 계좌입니다");
+				continue;
+			}
 		
 			if(intMenu == 1) {
 				// 입금
@@ -49,8 +54,7 @@ public class BankExec_01 {
 			
 			
 			
-			BankBalanceVO vo = bs.pickAcc(accNum);
-			if(vo == null) System.out.println("없는 계좌입니다");
+			
 //			else System.out.println(vo.getBalance());
 		}
 	}
